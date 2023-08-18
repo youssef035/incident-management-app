@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Incident</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('/static/pic.png');
+}
+
+}
+
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #ececec;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .attachment-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+        }
+
+        /* Custom CSS for the form */
+        /* Style the select dropdown */
+        select.form-control {
+            color: #080808;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 6px 12px;
+            height: 34px;
+            width: 100%;
+        }
+
+        /* Style the number input */
+        input[type="number"].form-control {
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 6px 12px;
+            height: 34px;
+            width: 100%;
+        }
+
+        /* Style the textareas */
+        textarea.form-control {
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 12px;
+            width: 100%;
+            resize: vertical;
+        }
+
+        /* Style the attachment input */
+        input[type="file"] {
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Style the submit button */
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report Incident</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select class="form-control" name="category" id="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="Network">Network</option>
+                    <option value="Hardware">Hardware</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="escalation_level">Escalation Level:</label>
+                <input type="number" class="form-control" name="escalation_level" id="escalation_level" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" name="description" id="description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="additional_details">Additional Details:</label>
+                <textarea class="form-control" name="additional_details" id="additional_details" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="resolution">Resolution:</label>
+                <textarea class="form-control" name="resolution" id="resolution" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="attachment-label" for="attachment">Attachment:</label>
+                <input type="file" name="attachment" id="attachment">
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

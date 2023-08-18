@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incident Reports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #005D9A; /* Dark blue */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #F2F9FF; /* Light blue */
+            color: #005D9A; /* Dark blue */
+        }
+
+        tr:nth-child(even) {
+            background-color: #F8FBFF; /* Lighter blue */
+        }
+
+        tr:hover {
+            background-color: #E5F3FF; /* Hover color */
+        }
+
+        /* Styles for the table header */
+        th {
+            font-weight: bold;
+        }
+
+        /* Styles for the "Closed" status */
+        .status-closed {
+            color: #FF0000; /* Red */
+            font-weight: bold;
+        }
+
+        /* Styles for the "Pending" status */
+        .status-pending {
+            color: #00A000; /* Green */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Incident Reports</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Additional Details</th>
+            <th>Resolution</th>
+            <th>Escalation Level</th>
+            <th>Status</th>
+            <th>Submitted Date</th>
+            <th>Closed Date</th>
+        </tr>
+        {% for incident in incidents %}
+        <tr>
+            <td>{{ incident[0] }}</td>
+            <td>{{ incident[1] }}</td>
+            <td>{{ incident[2] }}</td>
+            <td>{{ incident[3] }}</td>
+            <td>{{ incident[4] }}</td>
+            <td>{{ incident[5] }}</td>
+            <td class="{{ 'status-closed' if incident[6] else 'status-pending' }}">
+                {{ 'Closed' if incident[6] else 'Pending' }}
+            </td>
+            <td>{{ incident[7] }}</td>
+            <td>{{ incident[8] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
